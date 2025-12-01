@@ -1,0 +1,194 @@
+/* GemSearch Section */
+.gemsearch-section {
+    margin: var(--gem-spacing-xl) 0;
+}
+
+.gemsearch-card {
+    background: var(--gem-bg);
+    border: 1px solid var(--gem-border);
+    border-radius: var(--gem-radius-lg);
+    padding: var(--gem-spacing-lg);
+    backdrop-filter: blur(20px);
+    transition: box-shadow var(--gem-transition);
+}
+
+.gemsearch-card.active {
+    box-shadow:
+        0 0 0 2px var(--gem-primary),
+        0 0 20px rgba(96, 165, 250, 0.2);
+}
+
+/* Header */
+.gemsearch-header {
+    display: flex;
+    align-items: center;
+    gap: var(--gem-spacing-md);
+    margin-bottom: var(--gem-spacing-md);
+}
+
+.gem-icon {
+    font-size: 20px;
+    filter: drop-shadow(0 0 4px rgba(96, 165, 250, 0.5));
+}
+
+.gemsearch-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--gem-border);
+    border-radius: var(--gem-radius-md);
+    padding: var(--gem-spacing-md);
+    color: var(--gem-text);
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    outline: none;
+    transition: all var(--gem-transition);
+}
+
+.gemsearch-input:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--gem-primary);
+}
+
+.gemsearch-input::placeholder {
+    color: var(--gem-text-muted);
+}
+
+.gems-remaining {
+    font-size: 12px;
+    color: var(--gem-text-muted);
+    white-space: nowrap;
+}
+
+.gems-remaining .count {
+    color: var(--gem-primary);
+    font-weight: 600;
+}
+
+/* Results */
+.gemsearch-results {
+    min-height: 60px;
+}
+
+.gem-result {
+    padding: var(--gem-spacing-md);
+    margin-bottom: var(--gem-spacing-sm);
+    border-radius: var(--gem-radius-md);
+    background: rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    transition: background var(--gem-transition);
+}
+
+.gem-result:hover {
+    background: var(--gem-hover);
+}
+
+.result-header {
+    margin-bottom: var(--gem-spacing-xs);
+}
+
+.timestamp-badge {
+    display: inline-block;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 107, 107, 1);
+    background: rgba(255, 107, 107, 0.1);
+    padding: 4px 8px;
+    border-radius: var(--gem-radius-sm);
+}
+
+.result-content {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--gem-text);
+}
+
+/* Loading State */
+.loading-result {
+    margin-bottom: var(--gem-spacing-md);
+}
+
+.shimmer {
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.08) 50%,
+            rgba(255, 255, 255, 0.03) 100%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: var(--gem-radius-sm);
+}
+
+.timestamp-shimmer {
+    width: 60px;
+    height: 20px;
+    margin-bottom: var(--gem-spacing-xs);
+}
+
+.text-shimmer {
+    width: 80%;
+    height: 14px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+
+    100% {
+        background-position: 200px 0;
+    }
+}
+
+/* Out of Credits */
+.out-of-credits {
+    text-align: center;
+    padding: var(--gem-spacing-xl);
+}
+
+.out-of-credits .icon {
+    font-size: 48px;
+    margin-bottom: var(--gem-spacing-md);
+}
+
+.out-of-credits .message {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gem-text);
+    margin-bottom: var(--gem-spacing-sm);
+}
+
+.out-of-credits .submessage {
+    font-size: 14px;
+    color: var(--gem-text-muted);
+}
+
+/* Gem Indicator (for search page) */
+.gem-indicator {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.3;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity var(--gem-transition), transform var(--gem-transition);
+    z-index: 100;
+}
+
+.gem-indicator:hover {
+    opacity: 0.8;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* No Results / Error */
+.no-results,
+.error {
+    text-align: center;
+    padding: var(--gem-spacing-xl);
+    color: var(--gem-text-muted);
+    font-size: 14px;
+}
+
+.error {
+    color: rgba(255, 107, 107, 1);
+}
